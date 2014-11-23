@@ -8,13 +8,10 @@ function logContent(data) {
 }
 
 $(function() {
-    var data  = [1, 2, 3, 4],
-        $inp = $('#inp');
-
-    var keyup = Rx.Observable.fromEvent($inp, 'keyup').map(function(e) {
-        return e.target.value; 
-    }).debounce(500).distinctUntilChanged();
-
+    var $inp = $('#inp'),
+        keyup = Rx.Observable.fromEvent($inp, 'keyup').map(function(e) {
+            return e.target.value; 
+        }).debounce(500).distinctUntilChanged();
 
     fromWebSocket = function(address, protocol, openObserver) {
         var ws = new WebSocket(address, protocol);
