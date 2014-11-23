@@ -13,8 +13,6 @@ $(function() {
 
     var keyup = Rx.Observable.fromEvent($inp, 'keyup').map(function(e) {
         return e.target.value; 
-    }).filter(function(e) {
-        return e.length > 2; 
     }).debounce(500).distinctUntilChanged();
 
 
