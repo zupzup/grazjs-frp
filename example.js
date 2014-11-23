@@ -45,14 +45,12 @@ $(function() {
         socketSubject.onNext('yarr');
         socketSubject.onNext('arrr');
         keyup.subscribe(function(text) {
-            console.log(text);
             socketSubject.onNext(text);
         });
     }));
 
     socketSubject.subscribe(
         function (data) {
-            console.log(data);
             logContent(data.data);
         }
     );
